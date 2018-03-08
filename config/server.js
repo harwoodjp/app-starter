@@ -61,7 +61,7 @@ passport.use("local-signup", new LocalStrategy({
         insertUser(NewUser)
           .then(row => {
             NewUser.id = row[0]
-            console.log(NewUser)
+            console.log("Success! User has been signed up and logged in.")
             return done(null, NewUser)
           })
           .catch(error => {
