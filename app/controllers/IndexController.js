@@ -1,9 +1,8 @@
 exports.index = (req, res) => {
-  
-  if (req.user) console.log(`${req.user.username} is signed in.`)
-
+  const errors = req.session.errors ? req.session.errors : null
+  req.session.errors = []
   res.render("index", {
-    user: req.user ? req.user : null
+    user: req.user ? req.user : null,
+    errors: errors
   }) 
-
 }

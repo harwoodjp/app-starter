@@ -16,10 +16,11 @@ module.exports = passport => {
     passwordField: "password",
     passReqToCallback: true
   }, (req, username, password, done) => {
+    req.session.errors = []
     fetchUserByUsername(username)
       .then(rows => {
         if (rows.length) {
-          console.log("Sorry! That username is already taken.")
+          req.session.errors.push("Sorry! That username is already taken.")
           return done(null, false, req.flash("flashMessage", "Sorry! That username is already taken."))        
         } else {
           const NewUser = {
@@ -34,7 +35,7 @@ module.exports = passport => {
               return done(null, NewUser)
             })
             .catch(error => {
-              console.log("Sorry! That email is already taken.")
+              req.session.errors.push("Sorry! That email is already taken.")
               return done(null, false, req.flash('flashMessage', 'Sorry! That email is already taken.'))          
             })
         }
