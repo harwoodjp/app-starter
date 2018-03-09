@@ -11,6 +11,5 @@ exports.validateSignup = (username, email, password) => {
   if (!validator.isLength(password, { min: 6, max: 900 })) {
     errors.push("Password must be >= 6 characters.")
   }
-
   return errors
 }

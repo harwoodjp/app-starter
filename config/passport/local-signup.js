@@ -15,7 +15,6 @@ module.exports = passport => {
   }, (req, username, password, done) => {
     req.session.errors = []
 
-    // validate
     if (ValidateService.validateSignup(username, req.body.email, password).length) {
       req.session.errors = (ValidateService.validateSignup(username, req.body.email, password))
       return done(null, false, req.flash("flashMessage", "Sorry! Input validation has failed."))        
