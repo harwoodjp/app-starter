@@ -30,4 +30,6 @@ module.exports = app => {
     }
   )
 
+  app.get("/account", web_controller.account)
+
 }

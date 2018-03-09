@@ -1,6 +1,6 @@
 ## Overview
 
-This is a custom Express boilerplate application with [passport](http://www.passportjs.org/) authentication. It uses MySQL for data persistence and the [knex](http://knexjs.org/) query builder. It uses [ejs](http://ejs.co/) templating and [static-starter](https://github.com/harwoodjp/static-starter/) for the `public` directory.
+This is a custom Express application template with [passport](http://www.passportjs.org/) authentication. It uses MySQL for data persistence and the [knex](http://knexjs.org/) query builder. It uses [ejs](http://ejs.co/) templating and [static-starter](https://github.com/harwoodjp/static-starter/) for the `public` directory.
 
 ## Setup
 
