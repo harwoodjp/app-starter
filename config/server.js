@@ -26,9 +26,7 @@ app.engine("ejs", require("express-ejs-extend"))
 app.set("view engine", "ejs")
 
 // passport
-require("./passport/serializeUser")(passport)
-require("./passport/deserializeUser")(passport)
-require("./passport/local-signup")(passport)
+require("./passport/init")
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())

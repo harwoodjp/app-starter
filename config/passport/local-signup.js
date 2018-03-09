@@ -1,14 +1,10 @@
-const db = require("../db")
-
-const fetchUserByUsername = async username => await db("users").where("username", "=", username)
-const fetchUserById = async id => await db("users").where("id", "=", id)
-const insertUser = async user => db("users").insert(user)
-
 
 const passport = require("passport"),
   bcrypt = require("bcryptjs"),
   flash = require("connect-flash"),
   LocalStrategy = require("passport-local").Strategy
+
+const UserDataService = require("../../app/services/data/UserDataService")
 
 module.exports = passport => { 
   passport.use("local-signup", new LocalStrategy({
@@ -17,7 +13,7 @@ module.exports = passport => {
     passReqToCallback: true
   }, (req, username, password, done) => {
     req.session.errors = []
-    fetchUserByUsername(username)
+    UserDataService.fetchUserByUsername(username)
       .then(rows => {
         if (rows.length) {
           req.session.errors.push("Sorry! That username is already taken.")
@@ -28,7 +24,7 @@ module.exports = passport => {
             email: req.body.email,
             password: bcrypt.hashSync(password, "$2a$10$wENMOiXaNvkXN9BmCbh4ZO")
           }
-          insertUser(NewUser)
+          UserDataService.insertUser(NewUser)
             .then(row => {
               NewUser.id = row[0]
               console.log("Success! User has been signed up and logged in.")

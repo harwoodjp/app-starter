@@ -21,4 +21,12 @@ module.exports = app => {
 
   app.get('/signin', web_controller.signin)
 
+  app.post('/signin',
+    passport.authenticate("local-signin", {
+      failureRedirect: "/signin"
+    }), (req, res) => {
+      res.redirect("/")
+    }
+  )
+
 }
