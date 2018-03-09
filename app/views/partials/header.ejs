@@ -1,0 +1,9 @@
+<div class="header">
+  <% if (user) { %>
+    <span>Signed in as: <%= user.username %></span>
+    <a href="/logout">Logout</span>
+  <% } else { %>
+    <a href="/logout">Sign in</a>
+  <% }  %>
+
+  </div>
