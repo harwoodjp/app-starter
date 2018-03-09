@@ -1,5 +1,5 @@
 <% if (!user) { %>
-  <form id="signup" name="signup" action="signup" method="POST">
+  <form id="signin" name="signin" action="signin" method="POST">
     <% if (errors) { %>
       <ul class="errors">
         <% errors.forEach(error => { %>
@@ -8,9 +8,8 @@
       </ul>
     <% } %>      
     <input type="text" name="username" placeholder="Username">
-    <input type="text" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Password" value="user2">
-    <button>Sign up</button>
+    <input type="password" name="password" placeholder="Password">
+    <button>Sign in</button>
   </form>
 <% } %>
 

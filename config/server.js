@@ -11,7 +11,7 @@ dotEnv.config()
 const app = express()
 
 // app middleware
-app.use(express.static(path.join(__dirname).replace("config", "public")))
+app.use("/public", express.static(path.join(__dirname).replace("config", "public")))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
@@ -22,6 +22,7 @@ app.use(expressSession({
   saveUninitialized: false
 }))
 app.set("views", path.join(__dirname).replace("config", "app/views"))
+app.engine("ejs", require("express-ejs-extend"))
 app.set("view engine", "ejs")
 
 // passport
