@@ -1,7 +1,7 @@
 <% if (!user) { %>
   <form class="flex-column" id="signin" name="signin" action="signin" method="POST">
-    <% if (errors) { %>
-      <ul class="errors">
+    <% if (errors && errors.length) { %>
+      <ul class="errors">1
         <% errors.forEach(error => { %>
           <li><%= error %></li>
         <% }) %>
@@ -11,5 +11,6 @@
     <input type="password" name="password" placeholder="Password">
     <button>Sign in</button>
   </form>
+  <p class="cta">Not a member? <a href="/signup">Sign up</a></p>  
 <% } %>
 

@@ -4,7 +4,8 @@ const passport = require("passport"),
   flash = require("connect-flash"),
   LocalStrategy = require("passport-local").Strategy
 
-const UserDataService = require("../../app/services/data/UserDataService")
+const UserDataService = require("../../app/services/data/UserDataService"),
+  ValidateService = require("../../app/services/ValidateService")
 
 module.exports = passport => { 
   passport.use("local-signup", new LocalStrategy({
@@ -13,6 +14,13 @@ module.exports = passport => {
     passReqToCallback: true
   }, (req, username, password, done) => {
     req.session.errors = []
+
+    // validate
+    if (ValidateService.validateSignup(username, req.body.email, password).length) {
+      req.session.errors = (ValidateService.validateSignup(username, req.body.email, password))
+      return done(null, false, req.flash("flashMessage", "Sorry! Input validation has failed."))        
+    }
+
     UserDataService.fetchUserByUsername(username)
       .then(rows => {
         if (rows.length) {
