@@ -1,6 +1,7 @@
 const passport = require("passport")
 
-const web_controller = require("../app/controllers/WebController")
+const web_controller = require("../app/controllers/WebController"),
+  api_controller = require("../app/controllers/ApiController")
 
 module.exports = app => {
   app.get("/", web_controller.index)
@@ -31,5 +32,7 @@ module.exports = app => {
   )
 
   app.get("/account", web_controller.account)
+
+  app.get("/api/session", api_controller.userSession)
 
 }

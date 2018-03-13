@@ -1,7 +1,7 @@
 <% if (!user) { %>
   <form class="flex-column" id="signin" name="signin" action="signin" method="POST">
     <% if (errors && errors.length) { %>
-      <ul class="errors">1
+      <ul class="errors">
         <% errors.forEach(error => { %>
           <li><%= error %></li>
         <% }) %>
