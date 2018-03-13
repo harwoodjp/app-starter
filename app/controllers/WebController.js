@@ -6,6 +6,11 @@ exports.index = (req, res) => {
   }) 
 }
 
+exports.signout = (req, res) => {
+  req.logout()
+  res.redirect("/")
+}
+
 exports.signup = (req, res) => {
   const user = req.user ? req.user : null,
     errors = req.session.errors ? req.session.errors : null

@@ -6,10 +6,7 @@ const web_controller = require("../app/controllers/WebController"),
 module.exports = app => {
   app.get("/", web_controller.index)
   
-  app.get("/logout", (req, res) => {
-    req.logout()
-    res.redirect("/")
-  })
+  app.get("/signout", web_controller.signout)
 
   app.get("/signup", web_controller.signup)
 
