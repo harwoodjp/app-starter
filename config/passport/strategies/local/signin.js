@@ -3,10 +3,10 @@ const passport = require("passport"),
   flash = require("connect-flash"),
   LocalStrategy = require("passport-local").Strategy
 
-const UserDataService = require("../../app/services/data/UserDataService")  
+const UserDataService = require("../../../../app/services/data/UserDataService")
 
 module.exports = passport => { 
-  passport.use("local-signin", new LocalStrategy({
+  passport.use("local/signin", new LocalStrategy({
     usernameField : "username",
     passwordField : "password",
     passReqToCallback : true
