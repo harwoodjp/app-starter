@@ -1,4 +1,4 @@
-exports.userSession = (req, res) => {
+module.exports = (req, res) => {
   const user = req.user ? req.user : null  
   if (user) {
     const sessionData = Object.assign({}, user)

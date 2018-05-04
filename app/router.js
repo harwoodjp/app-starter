@@ -1,13 +1,13 @@
 const passport = require("passport")
 
-const web_controller = require("../app/controllers/WebController"),
-  api_controller = require("../app/controllers/ApiController")
+const web_controller = require("../app/controllers/web"),
+  api_controller = require("../app/controllers/api/")
 
 module.exports = app => {
-  app.get("/", web_controller.index)
+
+  app.get("/", web_controller.home)
   
   app.get("/signout", web_controller.signout)
-
   app.get("/signup", web_controller.signup)
 
   app.post("/signup",
@@ -19,7 +19,6 @@ module.exports = app => {
   )
 
   app.get('/signin', web_controller.signin)
-
   app.post('/signin',
     passport.authenticate("local/signin", {
       failureRedirect: "/signin"
@@ -29,7 +28,7 @@ module.exports = app => {
   )
 
   app.get("/account", web_controller.account)
-
+  
   app.get("/api/session", api_controller.userSession)
 
 }
