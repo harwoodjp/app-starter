@@ -1,5 +1,5 @@
 <% if (!user) { %>
-  <form class="flex-column" id="signup" name="signup" action="signup" method="POST">
+  <form id="signup" name="signup" action="signup" method="POST">
     <% if (errors && errors.length) { %>
       <ul class="errors">
         <% errors.forEach(error => { %>

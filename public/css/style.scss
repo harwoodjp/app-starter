@@ -1,12 +1,6 @@
-@import "colors";
-
-body {
-  a {
-    color: $mainBlue;
-  }
-  font-family: -apple-system, BlinkMacSystemFont, “Roboto”, “Droid Sans”, “Helvetica Neue”, Helvetica, Arial, sans-serif;
-  color: $mainBlack;
-}
+@import "mixins.scss";
+@import "colors.scss";
+@import "global.scss";
 
 .account {
   p {
@@ -43,17 +37,17 @@ body {
   text-align: center;
 }
 
-.flex {
-  display: flex;
-  &-row {
-    @extend .flex;
-    flex-direction: row;
-  }
-  &-column {
-    @extend .flex;    
-    flex-direction: column;
-  }
-}
+// .flex {
+//   display: flex;
+//   &-row {
+//     @extend .flex;
+//     flex-direction: row;
+//   }
+//   &-column {
+//     @extend .flex;    
+//     flex-direction: column;
+//   }
+// }
 
 .footer {
   border-top: 1px solid $mainBlack;
@@ -65,10 +59,14 @@ body {
 }
 
 .header {
+  @include flex(row);  
   justify-content: space-between;
   padding: 1em;
   a, span {
     margin-right: .5em;
+  }
+  .user {
+    @include flex(row);    
   }
 }
 
@@ -77,6 +75,7 @@ body {
     text-align: center;
   }
   form {
+    @include flex(column);    
     background-color: $mainLightGray;
     max-width: 20em;
     margin: 0 auto;
