@@ -1,6 +1,22 @@
 const db = require("../../../config/db")
 
-exports.fetchUserByUsername = async username => await db("users").where("username", "=", username)
-exports.fetchUserByEmail = async email => await db("users").where("email", "=", email)
-exports.fetchUserById = async id => await db("users").where("id", "=", id)
-exports.insertUser = async user => db("users").insert(user)
+class UserDataService {
+  static async fetchUserByUsername(username) {
+    return await db("users")
+      .where("username", "=", username)
+  }
+  static async fetchUserByEmail(email) {
+    return await db("users")
+      .where("email", "=", email)
+  }
+  static async fetchUserById(id) {
+    return await db("users")
+      .where("id", "=", id)
+  }
+  static async insertUser(user) {
+    return db("users")
+      .insert(user)
+  }
+}
+
+module.exports = UserDataService

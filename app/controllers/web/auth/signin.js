@@ -3,7 +3,7 @@ module.exports = (req, res) => {
     errors = req.session.errors ? req.session.errors : null
   req.session.errors = []
   res.render("pages/signin", {
-    title: "Sign in",    
+    title: "Sign in",
     user: user,
     errors: errors    
   })
