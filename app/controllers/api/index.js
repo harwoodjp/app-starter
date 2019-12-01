@@ -1,3 +1,4 @@
 module.exports = {
-  userSession: require("./userSession")
+  userSession: require("./userSession"),
+  dbApi: require("./dbApi")
 }
