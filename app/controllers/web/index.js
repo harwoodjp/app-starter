@@ -3,5 +3,6 @@ module.exports = {
   account: require("./member/account"),
   signin: require("./auth/signin"),
   signup: require("./auth/signup"),
-  signout: require("./auth/signout")
+  signout: require("./auth/signout"),
+  tables: require("./member/tables")
 }

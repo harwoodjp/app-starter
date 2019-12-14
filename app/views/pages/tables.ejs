@@ -1,0 +1,49 @@
+<% extend("../layout") %>
+<div class="tables">
+	<table>
+		<tbody>
+			<% for(var i=0; i < tables.length; i++) { %>
+				<tr>
+					<td><%= tables[i].created_date.toString().substring(0, 24) %></td>
+					<td><a href=""><%= tables[i].name %></a></td>
+				</tr>
+			<% } %>
+		</tbody>
+	</table>
+</div>
+
+<div class="createTable">
+<!-- 	<form class="form">
+		<span class="label">Table name</span>
+		<input type="text" name="">
+		<span class="label">Columns</span>
+		<div class="columns">
+			<div class="fields">
+				<div class="column">
+					<div class="field">
+						<span class="label">Name</span>				
+						<input type="text">						
+					</div>
+					<div class="field">
+						<span class="label">Type</span>				
+						<select name="" id="">
+							<option value="">String</option>
+							<option value="">Integer</option>
+							<option value="">Boolean</option>
+						</select> <br><br>						
+					</div>
+					<div class="field">
+						<span class="label">Length</span>				
+						<input type="number">						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="buttons">
+			<button>Add column</button>
+			<input type="submit" value="Submit">					
+		</div>
+	</form>
+ --></div>
+
+<script src="public/js/createTable.js" type="text/javascript"></script>

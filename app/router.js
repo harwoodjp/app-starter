@@ -29,9 +29,12 @@ module.exports = app => {
   )
 
   app.get("/account", web_controller.account)
+
+  app.get("/tables", web_controller.tables)
   
   app.get("/api/session", api_controller.userSession)
 
   app.get("/_api/:path", api_controller.dbApi)
+
 
 }

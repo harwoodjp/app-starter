@@ -5,3 +5,28 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, “Roboto”, “Droid Sans”, “Helvetica Neue”, Helvetica, Arial, sans-serif;
   color: $mainBlack;
 }
+
+table {
+	tbody {
+		border: 1px solid $mainBlack;
+	}
+	thead {
+		td {
+			border: none;
+		}
+	}
+	td {
+		padding: 1em;
+	}
+}
+
+select, button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: white;
+    padding: .25em;
+	option {
+		padding: 1em;
+	}
+}

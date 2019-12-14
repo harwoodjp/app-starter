@@ -90,3 +90,32 @@
     }
   }
 }
+
+.tables {
+  table {
+    margin: 0 auto;
+  }
+}
+
+.createTable {
+  .form {
+    .fields {
+      @include flex(row);
+      .field {
+        @include flex(column);
+        margin-right: 2em;
+        input {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .buttons {
+      @include flex(row);
+    }
+    .column {
+      @include flex(row);      
+      margin-left: 5%;
+      padding: .5em;
+    }
+  }
+}
